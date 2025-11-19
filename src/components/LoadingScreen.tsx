@@ -11,39 +11,43 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
       onAnimationComplete={() => {
-        setTimeout(onComplete, 4000); // 4 segundos
+        setTimeout(onComplete, 3000); // 3 segundos após aparecer
       }}
       className="fixed inset-0 z-50 bg-black flex items-center justify-center"
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-center gap-4"
-      >
-        <img
-          src={logoOnki}
-          alt="ONKI"
-          className="w-64 md:w-80 h-auto"
-        />
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-white text-lg md:text-xl tracking-wider opacity-60"
-        >
-          Olhar que gera valor
-        </motion.p>
-      </motion.div>
+      {/* Container com mesma estrutura EXATA do Hero */}
+      <div className="relative z-10 container mx-auto px-6 text-center -mt-32 md:-mt-40">
+        <div className="flex flex-col items-center">
+          {/* Logo com mesma posição exata do Hero */}
+          <motion.img
+            src={logoOnki}
+            alt="ONKI"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-48 md:w-64 lg:w-72 h-auto mb-8"
+          />
+          
+          {/* Slogan */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-white text-base md:text-lg tracking-wider opacity-60"
+          >
+            Olhar que gera valor
+          </motion.p>
+        </div>
+      </div>
       
       {/* Loading indicator */}
       <motion.div
         className="absolute bottom-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
+        transition={{ delay: 0.6, duration: 0.5 }}
       >
         <div className="flex gap-2">
           {[0, 1, 2].map((i) => (

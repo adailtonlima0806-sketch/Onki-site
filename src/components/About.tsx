@@ -44,12 +44,12 @@ export function About() {
           <h2 className="text-4xl md:text-6xl mb-8 tracking-tight">
             Quem Somos
           </h2>
-          <p className="md:text-xl opacity-80 leading-relaxed text-[18px]">
+          <p className="md:text-xl opacity-90 leading-relaxed text-[20px] text-center">
               Nós somos inconformados por natureza. Não aceitamos resultados medianos nem
               comunicação sem propósito. Ousados e humanos. Misturamos criatividade
               com estratégia, performance com leveza, tecnologia com sensibilidade.
-              Nascemos para resolver problemas de comunicação com profundidade, clareza e resultados, 
-              isso, sem ser genérico, apelativo ou arrogante.
+              Nascemos para resolver problemas de comunicação com profundidade, clareza 
+              e resultados — isso sem ser genérico, sem ser apelativo, sem&nbsp;ser&nbsp;arrogante.
           </p>
         </motion.div>
 

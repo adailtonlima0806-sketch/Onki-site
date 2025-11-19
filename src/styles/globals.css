@@ -205,3 +205,22 @@ h1, h2, h3, h4, h5, h6 {
 button {
   font-weight: 400;
 }
+
+/* Centralizar controles do vídeo */
+video::-webkit-media-controls-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+video::-webkit-media-controls-enclosure {
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+/* Para Firefox */
+video::-moz-media-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

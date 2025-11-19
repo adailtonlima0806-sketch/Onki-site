@@ -32,7 +32,7 @@ export function Hero() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-75"
         >
           {/* Substitua a URL abaixo pelo link do seu vídeo MP4 hospedado */}
           <source src="https://www.dropbox.com/scl/fi/f68vr2e5zm5lavtejqlqo/Showreel.mp4?rlkey=f5cgehkucndhg10p9jxwpnpkh&st=os3ytxaz&raw=1" type="video/mp4" />
@@ -45,26 +45,23 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
           className="flex flex-col items-center"
         >
-          {/* Logo com animação de entrada (transição da tela de carregamento) */}
+          {/* Logo que permanece fixo na transição */}
           <motion.img
             src={logoOnki}
             alt="ONKI"
-            initial={{ scale: 1.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            initial={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
             className="w-48 md:w-64 lg:w-72 h-auto mb-8"
           />
           
-          {/* Frase com palavra variável - primeira parte fixa */}
+          {/* Frase com palavra variável - aparece gradualmente */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
             className="text-lg md:text-xl lg:text-2xl mb-16 max-w-3xl mx-auto"
           >
             <div className="flex flex-col items-center justify-center gap-1">
@@ -88,9 +85,9 @@ export function Hero() {
 
           <motion.button
             onClick={scrollToAbout}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
             className="group px-12 py-4 bg-white text-black hover:bg-white/90 transition-all duration-300 hover:scale-105"
           >
             <span className="tracking-wide">O que nos move</span>
@@ -103,7 +100,7 @@ export function Hero() {
         onClick={scrollToAbout}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
+        transition={{ duration: 0.8, delay: 1.4 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-60 hover:opacity-80 transition-opacity"
         aria-label="Scroll down"
       >

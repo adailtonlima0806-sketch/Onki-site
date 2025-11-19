@@ -153,11 +153,19 @@ export function Header({ activeSection, currentPage, onNavigate }: HeaderProps) 
                 transition={{ duration: 0.3, delay: 0.1 }}
                 className="absolute top-8"
               >
-                <img 
-                  src={logoOnki} 
-                  alt="ONKI" 
-                  className="h-10 w-auto"
-                />
+                <button
+                  onClick={() => {
+                    onNavigate('home');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="hover:opacity-80 transition-opacity"
+                >
+                  <img 
+                    src={logoOnki} 
+                    alt="ONKI" 
+                    className="h-10 w-auto"
+                  />
+                </button>
               </motion.div>
 
               {/* Menu items */}

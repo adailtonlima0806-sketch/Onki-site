@@ -50,17 +50,19 @@ export function Clients() {
           <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
           
-          <div className="overflow-hidden">
+          <div 
+            className="overflow-hidden"
+          >
             <motion.div
               className="flex gap-8 md:gap-12"
               animate={{
-                x: [0, -1 * (clients.length * (120 + 32))],
+                x: [0, -1 * (clients.length * (180 + 48))],
               }}
               transition={{
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 30,
+                  duration: 45,
                   ease: "linear",
                 },
               }}
@@ -68,7 +70,7 @@ export function Clients() {
               {duplicatedClients.map((client, index) => (
                 <div
                   key={`${client.name}-${index}`}
-                  className="flex-shrink-0 w-24 h-12 md:w-32 md:h-16 flex items-center justify-center"
+                  className="flex-shrink-0 w-36 h-20 md:w-48 md:h-24 flex items-center justify-center"
                 >
                   <img
                     src={client.logo}

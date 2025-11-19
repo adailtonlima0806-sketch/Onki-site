@@ -15,15 +15,38 @@ export function Contact() {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
-  const handleCopyEmail = async () => {
+  const handleCopyEmail = () => {
     const email = 'contato@onki.com.br';
+    
+    // Cria um elemento textarea temporário
+    const textArea = document.createElement('textarea');
+    textArea.value = email;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
     try {
-      await navigator.clipboard.writeText(email);
-      setEmailCopied(true);
-      toast.success('E-mail copiado para a área de transferência!');
-      setTimeout(() => setEmailCopied(false), 2000);
+      const successful = document.execCommand('copy');
+      textArea.remove();
+      
+      if (successful) {
+        setEmailCopied(true);
+        toast.success('E-mail copiado para a área de transferência!');
+        setTimeout(() => setEmailCopied(false), 2000);
+      } else {
+        toast.error('Não foi possível copiar. E-mail: contato@onki.com.br', {
+          duration: 5000,
+        });
+      }
     } catch (err) {
-      toast.error('Erro ao copiar e-mail');
+      textArea.remove();
+      console.error('Erro ao copiar:', err);
+      toast.error('Não foi possível copiar. E-mail: contato@onki.com.br', {
+        duration: 5000,
+      });
     }
   };
 
@@ -179,7 +202,7 @@ export function Contact() {
         className="max-w-6xl mx-auto mt-24 pt-12 border-t border-white/10 text-center"
       >
         <p className="opacity-60 text-sm tracking-wide">
-          © {new Date().getFullYear()} ONKI — Olhar que gera valor
+         Todos os direitos reservados © {new Date().getFullYear()} ONKI — Olhar que gera valor
         </p>
       </motion.div>
     </section>

@@ -9,6 +9,7 @@ import { Contact } from './components/Contact';
 import { CasesPage } from './components/CasesPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import { LoadingScreen } from './components/LoadingScreen';
+import { Toaster } from './components/ui/sonner';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -73,6 +74,7 @@ export default function App() {
             )}
           </main>
           <ScrollToTop />
+          <Toaster />
         </div>
       )}
     </>
